@@ -226,13 +226,13 @@ function App() {
           <p>import Grid from '@material-ui/core/Grid'</p>
           <Grid container spacing={2} justify="center">
             <Grid item xs={3} sm={6}>
-              <Paper style={{ height:75, width:'100%' }} />
+              <Paper style={{ height: 75, width: '100%' }} />
             </Grid>
             <Grid item xs={3} sm={6}>
-              <Paper style={{ height:75, width:'100' }} />
+              <Paper style={{ height: 75, width: '100' }} />
             </Grid>
             <Grid item xs={3} lg={12}>
-              <Paper style={{ height:75, width:'100%' }} />
+              <Paper style={{ height: 75, width: '100%' }} />
             </Grid>
           </Grid>
 
