@@ -10,7 +10,15 @@ import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import TextField from '@material-ui/core/TextField'
 
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { orange, green } from '@material-ui/core/colors'
+
+import 'fontsource-roboto'
+
+import Typography from '@material-ui/core/Typography'
+
+import Container from '@material-ui/core/Container' 
+
 
 const useStyles = makeStyles({
   root : {
@@ -18,9 +26,26 @@ const useStyles = makeStyles({
     border: 0,
     borderRadius: 15,
     color: 'red',
-    padding: '0 30px',
+    padding: '5px 30px',
     marginBottom: '50px'
   }
+})
+
+const theme = createMuiTheme({
+  typography: {
+    h2: {
+      fontSize: 36,
+      marginBottom: 15,
+    }
+  },
+  palette: {
+    primary: {
+      main: green[500],
+    },
+    secondary: {
+      main: orange[500],
+    }
+  } 
 })
 
 function ButtonStyled() {
@@ -50,7 +75,9 @@ function CheckboxExample() {
 
 function App() {
   return (
-    <div className="App">
+    <ThemeProvider theme={theme}>
+      <Container maxWidth="sm">
+      <div className="App">
         <h1>BUTTONS</h1>
         <p>Requires $ yarn add @material-ui/core</p>
         <p>Then add: import Button from '@material-ui/core/Button'</p>
@@ -138,19 +165,45 @@ function App() {
         <h1>TEXT FIELD</h1>
         <p>Variants: filled, outlined</p>
         <p>colors</p>
-        <TextField />
-        <TextField variant="filled" />
-        <TextField variant="outlined" />
-        <TextField variant="outlined" color="secondary" />
-        <TextField variant="outlined" type="date" />
-        <TextField variant="outlined" type="time" />
-        <TextField variant="outlined" label="The Time" type="time" />
-        <TextField variant="outlined" label="Email" type="email" value="test@test.com" />
-        <TextField variant="outlined" label="Email" type="email" placeholder="test@test.com" />
+        <TextField className="textfield" />
+        <TextField className="textfield" variant="filled" />
+        <TextField className="textfield" variant="outlined" />
+        <TextField className="textfield" variant="outlined" color="secondary" />
+        <TextField className="textfield" variant="outlined" type="date" />
+        <TextField className="textfield" variant="outlined" type="time" color="secondary" />
+        <TextField className="textfield" variant="outlined" label="The Time" type="time" />
+        <TextField className="textfield" variant="outlined" label="Email" type="email" value="test@test.com" />
+        <TextField className="textfield" variant="outlined" label="Email" type="email" placeholder="test@test.com" />
 
         <h1>STYLED BUTTON</h1>
         <ButtonStyled />
-    </div>
+
+        <h1>styles</h1>
+        <p>import curly makeStyles, ThemeProvider, createMuiTheme curly from '@material-ui/core/styles'</p>
+        <p>import curly orange, green, blue, red curly from '@material-ui/core/colors'</p>
+
+        <h1>FONT</h1>
+        <p>$ yarn add fontsource-roboto</p>
+        <p>import 'fontsource-roboto'</p>
+        <p>import Typography from '@material-ui/core/Typography'</p>
+        <Typography>Hello World</Typography>
+        <Typography variant="h1">variant="h1"</Typography>
+        <Typography variant="h2">variant="h2"</Typography>
+        <Typography variant="h3">variant="h3"</Typography>
+        <Typography variant="h4">variant="h4"</Typography>
+        <Typography variant="h5">variant="h5"</Typography>
+        <Typography variant="h6">variant="h6"</Typography>
+        <Typography variant="subtitle1">variant="subtitle1"</Typography>
+        <Typography variant="body1">variant="body1"</Typography>
+
+        <Typography variant="h2" component="div">variant="h2" component="div"</Typography>
+
+
+
+    </div>    
+      </Container>
+    
+    </ThemeProvider>
   );
 }
 
